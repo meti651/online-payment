@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { formatCreditNum } from "../../utility/format";
 import Card from "../CreditCard/Card";
 
 import * as Styles from "./Form.module.scss";
@@ -37,24 +38,41 @@ export default function Form() {
                     <div className="row">
                         <div className="column">
                             <label htmlFor="cardNum">Kártyaszám</label>
-                            <input name="cardNum" value={formData.cardNum} onChange={handleInputChange} required />
+                            <input
+                                name="cardNum"
+                                value={formatCreditNum(formData.cardNum)}
+                                onChange={handleInputChange}
+                                maxLength="20"
+                                required
+                            />
                         </div>
                     </div>
                     <div className="row">
                         <div className="column">
                             <label htmlFor="name">Kártyabirtokos neve</label>
-                            <input name="name" value={formData.name} onChange={handleInputChange} required />
+                            <input name="name" value={formData.name} onChange={handleInputChange} required maxLength="128" />
                         </div>
                     </div>
                     <div className="row">
                         <div className="column">
                             <label>Lejárati dátum</label>
                             <input name="month" value={formData.month} onChange={handleExpirationDateChange} required />
+                            <select>
+                                {}
+                            </select>
                             <input name="year" value={formData.year} onChange={handleExpirationDateChange} required />
                         </div>
                         <div className="column">
                             <label htmlFor="cvv">CVV</label>
-                            <input name="cvv" value={formData.cvv} onChange={handleInputChange} required />
+                            <input
+                                name="cvv"
+                                value={formData.cvv}
+                                onChange={handleInputChange}
+                                required
+                                type="number"
+                                maxLength="3"
+                                minLength="3"
+                            />
                         </div>
                     </div>
                     <div className="row">
@@ -64,7 +82,7 @@ export default function Form() {
                         </div>
                     </div>
                     <div className="row">
-                        <button>Küldés</button>
+                        <button type="submit">Küldés</button>
                     </div>
                 </div>
             </form>
