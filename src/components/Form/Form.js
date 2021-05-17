@@ -21,13 +21,17 @@ export default function Form() {
     };
 
     const handleInputChange = ({ target }) => {
-        setFormData((data) => ({ ...data, [target.name]: target.value }));
+        setFormData((data) => {
+            const result = { ...data, [target.name]: target.value };
+            result.cvv = result.cvv.slice(0, 3);
+            return result;
+        });
     };
 
     const handleExpirationDateChange = ({ target }) => {
         setFormData((data) => ({ ...data, expirationDate: { ...data.expirationDate, [target.name]: target.value } }));
     };
-    console.log(formData.cardNum);
+    
     return (
         <div>
             <div id={Styles.credit_card_wrapper}>
