@@ -9,8 +9,8 @@ export default function Form() {
         cardNum: "",
         name: "",
         expirationDate: {
-            month: "",
-            year: "",
+            month: new Date().getMonth(),
+            year: new Date().getFullYear(),
         },
         cvv: "",
         phoneNum: "",
@@ -25,8 +25,11 @@ export default function Form() {
     };
 
     const handleExpirationDateChange = ({ target }) => {
-        setFormData((data) => ({ ...data, expirationDate: { [target.name]: target.value } }));
+        setFormData((data) => ({ ...data, expirationDate: { ...data.expirationDate, [target.name]: target.value } }));
     };
+
+    console.log(formData.expirationDate.year);
+    console.log(new Date().getMonth());
 
     return (
         <div>
@@ -50,17 +53,42 @@ export default function Form() {
                     <div className="row">
                         <div className="column">
                             <label htmlFor="name">Kártyabirtokos neve</label>
-                            <input name="name" value={formData.name} onChange={handleInputChange} required maxLength="128" />
+                            <input
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                required
+                                maxLength="128"
+                            />
                         </div>
                     </div>
                     <div className="row">
                         <div className="column">
                             <label>Lejárati dátum</label>
-                            <input name="month" value={formData.month} onChange={handleExpirationDateChange} required />
-                            <select>
-                                {}
+                            <select name="month" onChange={handleExpirationDateChange}>
+                                {[...new Array(12)].map((_, index) => (
+                                    <option
+                                        key={index}
+                                        value={index + 1}
+                                        disabled={
+                                            new Date().getFullYear() == formData.expirationDate.year &&
+                                            new Date().getMonth() > index + 1
+                                        }
+                                    >
+                                        {index + 1}
+                                    </option>
+                                ))}
                             </select>
-                            <input name="year" value={formData.year} onChange={handleExpirationDateChange} required />
+                            <select name="year" onChange={handleExpirationDateChange}>
+                                {[...new Array(11)].map((_, index) => {
+                                    const thisYear = new Date().getFullYear();
+                                    return (
+                                        <option key={index} value={thisYear + index}>
+                                            {thisYear + index}
+                                        </option>
+                                    );
+                                })}
+                            </select>
                         </div>
                         <div className="column">
                             <label htmlFor="cvv">CVV</label>
