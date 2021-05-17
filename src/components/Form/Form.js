@@ -31,7 +31,7 @@ export default function Form() {
     const handleExpirationDateChange = ({ target }) => {
         setFormData((data) => ({ ...data, expirationDate: { ...data.expirationDate, [target.name]: target.value } }));
     };
-    
+
     return (
         <div>
             <div id={Styles.credit_card_wrapper}>
@@ -105,7 +105,14 @@ export default function Form() {
                     <div className="row">
                         <div className="column">
                             <label htmlFor="phoneNum">Telefonszám</label>
-                            <input name="phoneNum" value={formData.phoneNum} onChange={handleInputChange} required />
+                            <input
+                                name="phoneNum"
+                                value={formData.phoneNum}
+                                onChange={handleInputChange}
+                                required
+                                type="tel"
+                                pattern="\+36 (?:20|30|70) \d{3} \d{4}"
+                            />
                         </div>
                     </div>
                     <div className="row">
