@@ -27,10 +27,7 @@ export default function Form() {
     const handleExpirationDateChange = ({ target }) => {
         setFormData((data) => ({ ...data, expirationDate: { ...data.expirationDate, [target.name]: target.value } }));
     };
-
-    console.log(formData.expirationDate.year);
-    console.log(new Date().getMonth());
-
+    console.log(formData.cardNum);
     return (
         <div>
             <div id={Styles.credit_card_wrapper}>
@@ -45,7 +42,7 @@ export default function Form() {
                                 name="cardNum"
                                 value={formatCreditNum(formData.cardNum)}
                                 onChange={handleInputChange}
-                                maxLength="20"
+                                maxLength="19"
                                 required
                             />
                         </div>
@@ -98,8 +95,6 @@ export default function Form() {
                                 onChange={handleInputChange}
                                 required
                                 type="number"
-                                maxLength="3"
-                                minLength="3"
                             />
                         </div>
                     </div>
