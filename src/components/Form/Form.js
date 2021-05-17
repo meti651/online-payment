@@ -9,8 +9,8 @@ export default function Form() {
         cardNum: "",
         name: "",
         expirationDate: {
-            month: new Date().getMonth(),
-            year: new Date().getFullYear(),
+            month: new Date().getMonth().toString(),
+            year: new Date().getFullYear().toString(),
         },
         cvv: "",
         phoneNum: "",
