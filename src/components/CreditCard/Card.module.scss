@@ -1,12 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 #card_container {
-    width: 320px;
-    height: 200px;
+    font-family: "Bebas Neue", cursive;
+    width: 489px;
+    height: 308px;
     perspective: 1000px;
     position: absolute;
     left: 50%;
     top: 0;
     transform: translate(-50%, -50%);
     color: white;
+}
+
+#icon {
+    img {
+        width: 55px;
+    }
 }
 
 #card_inner {
@@ -27,8 +36,7 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    background-image: linear-gradient(360deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)),
-        url("../../media/credit-card-background.jpg");
+    background-image: url("../../media/credit-card-background.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,6 +52,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
+    gap: 8px;
 
     #placeholder {
         flex: 1;
@@ -54,8 +63,8 @@
     }
 
     #card_num {
-        font-size: 24px;
-        letter-spacing: 1.5px;
+        font-size: 32px;
+        letter-spacing: 10.7px;
     }
 
     #card_bottom {
@@ -63,5 +72,7 @@
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 32px;
+        margin-top: 16px;
+        letter-spacing: 5px;
     }
 }
