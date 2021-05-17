@@ -32,6 +32,8 @@ export default function Form() {
         setFormData((data) => ({ ...data, expirationDate: { ...data.expirationDate, [target.name]: target.value } }));
     };
 
+    console.log(new Date().getMonth());
+
     return (
         <div>
             <div id={Styles.credit_card_wrapper}>
@@ -74,7 +76,7 @@ export default function Form() {
                                             value={index + 1}
                                             disabled={
                                                 new Date().getFullYear() == formData.expirationDate.year &&
-                                                new Date().getMonth() > index + 1
+                                                new Date().getMonth() >= index + 1
                                             }
                                         >
                                             {index + 1}
