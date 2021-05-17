@@ -4,10 +4,10 @@ import * as Styles from "./Card.module.scss";
 
 import Chip from "../../media/Chip.png";
 
-export default function Card({ cardData }) {
+export default function Card({ cardData, isFlipped }) {
     return (
         <div id={Styles.card_container}>
-            <div id={Styles.card_inner}>
+            <div id={Styles.card_inner} className={isFlipped ? Styles.flip : ""}>
                 <div id={Styles.card_front}>
                     <div id={Styles.placeholder}></div>
                     <div id={Styles.icon}>
