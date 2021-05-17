@@ -24,6 +24,16 @@ export default function Card({ cardData, isFlipped }) {
                 <div id={Styles.card_back}>
                     <div id={Styles.black_line}></div>
                     <div id={Styles.cvv}>{cardData.cvv}</div>
+                    <div id={Styles.closing_text}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis imperdiet malesuada libero non
+                        elementum. Cras quis euismod risus, in viverra massa. Suspendisse maximus mattis magna, eu
+                        facilisis felis suscipit et. Maecenas dictum est quis erat egestas scelerisque. Aliquam erat
+                        volutpat. Nam a bibendum nulla. Suspendisse potenti. Proin id ultrices velit. Pellentesque id
+                        convallis diam, sed sagittis orci. Etiam pulvinar, purus eu suscipit semper, orci nunc
+                        consectetur nunc, vitae blandit velit urna vel nulla. Nulla nec velit et massa maximus
+                        dignissim. Nullam quis rutrum ante. Nulla sed eleifend ante, eu tempor sapien. Suspendisse
+                        semper auctor eros at placerat. Donec aliquet purus eu scelerisque vestibulum.
+                    </div>
                 </div>
             </div>
         </div>
