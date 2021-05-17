@@ -16,6 +16,8 @@ export default function Form() {
         phoneNum: "",
     });
 
+    const [isCardFlipped, setIsCardFlipped] = useState(false);
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
     };
@@ -35,7 +37,7 @@ export default function Form() {
     return (
         <div id={Styles.form_container}>
             <div id={Styles.credit_card_wrapper}>
-                <Card cardData={formData} />
+                <Card cardData={formData} isFlipped={isCardFlipped} />
             </div>
             <form onSubmit={handleFormSubmit}>
                 <div className={Styles.column}>
@@ -92,6 +94,8 @@ export default function Form() {
                             required
                             type="number"
                             className={Styles.short_input}
+                            onFocus={() => setIsCardFlipped(true)}
+                            onBlur={() => setIsCardFlipped(false)}
                         />
                     </div>
                 </div>
