@@ -20,6 +20,17 @@ export default function Form() {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
+        const result = {
+            cardNum: formData.cardNum.replaceAll(" ", ""),
+            name: formData.name,
+            expirationDate: {
+                month: formData.expirationDate.month,
+                year: formData.expirationDate.year,
+            },
+            phoneNum: formData.phoneNum.replaceAll(" ", ""),
+            cvv: formData.cvv,
+        };
+        console.log(result);
     };
 
     const handleInputChange = ({ target }) => {
